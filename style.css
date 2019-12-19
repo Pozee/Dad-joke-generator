@@ -41,8 +41,8 @@ input {
     font-size: 26px;
     color: #34495e;
     border: none;
+    padding-left: 0.3em;
 }
-
 input:focus {
 border: solid rgb(255, 92, 92) 2px;
 }
