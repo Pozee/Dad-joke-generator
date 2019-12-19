@@ -8,7 +8,7 @@ let req = new Request(apiUrl, {
 });
 
 window.addEventListener("load", () => { // Load starts
-    //loadJoke();
+    loadJoke();
     let inputField = document.querySelector(".user-value");
     let errorShower = document.querySelector(".error-shower");
     inputField.addEventListener("keyup", event => {
