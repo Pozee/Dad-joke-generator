@@ -15,13 +15,11 @@ window.addEventListener("load", () => { // Load starts
     let errorShower = document.querySelector(".error-shower");
     inputField.addEventListener("keyup", event => {
         let userValue = document.querySelector(".user-value").value;
-        if (event.code === "Enter") {
-            if (userValue.length > 0) {
+        if (event.code === "Enter" && userValue.length > 0) {
                   errorShower.style.opacity = "0";
             //console.log("Enter was pressed!");
             searchJoke(userValue);
-                }
-          
+        }
         } else if (event.code === "Enter" && userValue.length <= 0) {
             errorShower.innerHTML = "Empty field, try again."
             errorShower.style.opacity = "1"
