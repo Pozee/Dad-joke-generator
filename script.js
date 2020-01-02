@@ -16,7 +16,9 @@ window.addEventListener("load", () => { // Load starts
     inputField.addEventListener("keyup", event => {
         let userValue = document.querySelector(".user-value").value;
         if (event.code === "Enter" && userValue.length > 0) {
+            if(userValue.length > 0) {
                   errorShower.style.opacity = "0";
+               }
             //console.log("Enter was pressed!");
             searchJoke(userValue);
         } else if (event.code === "Enter" && userValue.length <= 0) {
