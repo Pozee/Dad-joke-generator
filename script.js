@@ -19,7 +19,6 @@ window.addEventListener("load", () => { // Load starts
                   errorShower.style.opacity = "0";
             //console.log("Enter was pressed!");
             searchJoke(userValue);
-        }
         } else if (event.code === "Enter" && userValue.length <= 0) {
             errorShower.innerHTML = "Empty field, try again."
             errorShower.style.opacity = "1"
