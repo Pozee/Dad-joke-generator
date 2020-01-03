@@ -16,17 +16,16 @@ window.addEventListener("load", () => { // Load starts
     inputField.addEventListener("keyup", event => {
         let userValue = document.querySelector(".user-value").value;
          if(userValue.length > 0) {
-                  errorShower.style.opacity = "0";
+            errorShower.style.opacity = "0";
                };
         if (event.code === "Enter" && userValue.length > 0) {
-           errorShower.style.opacity = "0";
             //console.log("Enter was pressed!");
             searchJoke(userValue);
         } else if (event.code === "Enter" && userValue.length <= 0) {
             errorShower.innerHTML = "Empty field, try again."
             errorShower.style.opacity = "1"
         }
-    })
+    });
 }) // Load ends
 
 function loadJoke() {
@@ -50,11 +49,15 @@ function searchJoke(userInput) {
     fetch(reqSearch)
     .then(response => response.json())
     .then(data => {
-        //console.log(data.results[0].joke)
+        //console.log(data.total_jokes)
+        if (data.total_jokes == 0) {
+            let errorShower = document.querySelector(".error-shower");
+            errorShower.innerHTML = "Couldn't find any match, try again."
+            errorShower.style.opacity = "1"
+        } else {
         randomItem = data.results[Math.floor(Math.random()*data.results.length)];
         let jokeArea = document.querySelector(".joke-text");
         jokeArea.innerHTML = randomItem.joke;
-        
+        }
     });
-
 }
