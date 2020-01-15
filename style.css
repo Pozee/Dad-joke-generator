@@ -36,7 +36,7 @@ h1 {
 input {
     font-family: 'Oswald', serif;
     height: 2em;
-    width: 14em;
+    width: 16em;
     border-radius: 0.3em;
     font-size: 26px;
     color: #34495e;
@@ -86,23 +86,22 @@ a:hover {
 button {
     border: solid #34495e 2px;
     border: none;
-    top: 195px;
     position: absolute;
     cursor: pointer;
     background-color: white;
-    width: 2.7em;
-     height: 3.6em;
+    width: 40px;
+     height: 40px;
     border-radius: 0.3em;
-    margin-left: -10px ;
+    margin-left: -50px ;
     background-image: url(refresh.png);
     background-repeat: no-repeat;
     background-position: center;
+    top: 5px;
+    
 }
 button:active {
     background-size: 18px;
 }
-input:focus + #refresh {
-    border-top: solid rgb(255, 92, 92) 2px;
-    border-bottom:solid rgb(255, 92, 92) 2px;
-    border-right: solid rgb(255, 92, 92) 2px;
+.refresh-content {
+    position: relative;
 }
