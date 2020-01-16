@@ -23,9 +23,9 @@ h1 {
 .content-wrap {
     min-height: 100vh;
     overflow: hidden;
- display: block;
- position: relative;
- padding-bottom: 30px;
+    display: block;
+    position: relative;
+    padding-bottom: 30px;
 }
 .container {
     display: flex;
@@ -36,7 +36,7 @@ h1 {
 input {
     font-family: 'Oswald', serif;
     height: 2em;
-    width: 14em;
+    width: 16em;
     border-radius: 0.3em;
     font-size: 26px;
     color: #34495e;
@@ -48,6 +48,7 @@ input:focus {
 border: solid rgb(255, 92, 92) 2px;
 }
 .joke-text {
+    text-align: center;
     display: inline-block;
     padding-top: 5em;
     font-family: 'Oswald', serif;
@@ -78,8 +79,52 @@ a:hover {
     color: rgb(199, 198, 198);
 }
 .error-shower {
-   opacity: 0;
+    opacity: 0;
     font-family: 'Oswald', serif;
     color: rgb(255, 64, 64);
     text-shadow: 2px 3px 3px rgba(0,0,0,0.5);
 }
+#refresh,#refresh-small {
+    border: solid #34495e 2px;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    background-color: white;
+    width: 40px;
+     height: 40px;
+    border-radius: 0.3em;
+    right: 5px;
+    background-image: url(refresh.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 5px;
+    
+}
+button:active {
+    background-size: 18px;
+}
+
+.refresh-content {
+    position: relative;
+}
+.input-small {
+    display: none;
+}
+@media screen and (max-width: 570px) {
+   h1 {
+       text-align: center;
+   }
+input {
+    width: 12em;
+}
+.input-small {
+    display: block;
+}
+.input-big {
+    display:none;
+}
+.joke-text {
+    padding-top: 1em;
+    text-align: center;
+}
+  }

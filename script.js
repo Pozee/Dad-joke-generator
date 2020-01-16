@@ -1,7 +1,7 @@
 //console.log("Javascript loaded!");
 const apiUrl = "https://icanhazdadjoke.com/";
 let myHeader = new Headers();
-myHeader.append("Accept", "application/json") 
+myHeader.append("Accept", "application/json")
 let req = new Request(apiUrl, {
     method: "GET",
     headers: myHeader,
@@ -15,9 +15,9 @@ window.addEventListener("load", () => { // Load starts
     let errorShower = document.querySelector(".error-shower");
     inputField.addEventListener("keyup", event => {
         let userValue = document.querySelector(".user-value").value;
-         if(userValue.length > 0) {
+        if (userValue.length > 0) {
             errorShower.style.opacity = "0";
-               };
+        };
         if (event.code === "Enter" && userValue.length > 0) {
             //console.log("Enter was pressed!");
             searchJoke(userValue);
@@ -25,6 +25,10 @@ window.addEventListener("load", () => { // Load starts
             errorShower.innerHTML = "Empty field, try again."
             errorShower.style.opacity = "1"
         }
+    });
+    let button = document.querySelector("#refresh");
+    button.addEventListener("click", event => {
+        refreshJoke();
     });
 }) // Load ends
 
@@ -47,17 +51,24 @@ function searchJoke(userInput) {
     });
     //console.log(reqSearch);
     fetch(reqSearch)
-    .then(response => response.json())
-    .then(data => {
-        //console.log(data.total_jokes)
-        if (data.total_jokes == 0) {
-            let errorShower = document.querySelector(".error-shower");
-            errorShower.innerHTML = "Couldn't find any match, try again."
-            errorShower.style.opacity = "1"
-        } else {
-        randomItem = data.results[Math.floor(Math.random()*data.results.length)];
-        let jokeArea = document.querySelector(".joke-text");
-        jokeArea.innerHTML = randomItem.joke;
-        }
-    });
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data.total_jokes)
+            if (data.total_jokes == 0) {
+                let errorShower = document.querySelector(".error-shower");
+                errorShower.innerHTML = "Couldn't find any match, try again."
+                errorShower.style.opacity = "1"
+            } else {
+                randomItem = data.results[Math.floor(Math.random() * data.results.length)];
+                let jokeArea = document.querySelector(".joke-text");
+                jokeArea.innerHTML = randomItem.joke;
+            }
+        });
 }
+function refreshJoke() {
+    let inputField = document.querySelector(".user-value").value;
+    if (inputField.length > 0) {
+        searchJoke(inputField);
+    } else
+        loadJoke();
+};
