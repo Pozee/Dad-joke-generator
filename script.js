@@ -29,8 +29,9 @@ window.addEventListener("load", () => { // Load starts
     let button = document.querySelector("#refresh");
     button.addEventListener("click", event => {
         refreshJoke();
-    let button = document.querySelector("#refresh-small");
-    button.addEventListener("click", event => {
+    });
+    let buttonSmall = document.querySelector("#refresh-small");
+    buttonSmall.addEventListener("click", event => {
         refreshJoke();
     });
 }) // Load ends
